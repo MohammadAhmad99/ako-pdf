@@ -1052,9 +1052,17 @@
   border: 2px solid transparent;
 }
 
+
+#toolbarViewerLeft,
+#toolbarViewerRight,
+#sidebarContainer {
+    display: none !important;
+}
+
 :root {
   --dir-factor: 1;
-  --sidebar-width: 200px;
+  /* --sidebar-width: 200px; // mo999dev */
+  --sidebar-width: 0px;
   --sidebar-transition-duration: 200ms;
   --sidebar-transition-timing-function: ease;
   --scale-select-width: 140px;
