@@ -2806,7 +2806,7 @@ const PDFViewerApplication = {
 };
 exports.PDFViewerApplication = PDFViewerApplication;
 {
-  const HOSTED_VIEWER_ORIGINS = ["null", "https://api.akoapp.xyz", "http://api.akoapp.xyz"];
+  const HOSTED_VIEWER_ORIGINS = ["null", "https://api.akoapp.xyz", "http://api.akoapp.xyz", "https://pdf.akoapp.xyz", "http://pdf.akoapp.xyz"];
   var validateFileURL = function (file) {
     if (!file) {
       return;
