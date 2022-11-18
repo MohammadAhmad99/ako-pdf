@@ -1944,6 +1944,7 @@ const PDFViewerApplication = {
     parameters.WithCredentials = true;
     parameters.httpHeaders = {
       Cookie: getCookie("token"),
+      authentication: getCookie("token"),
     };
     const loadingTask = (0, _pdfjsLib.getDocument)(parameters);
     this.pdfLoadingTask = loadingTask;
