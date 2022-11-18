@@ -1903,6 +1903,7 @@ const PDFViewerApplication = {
       _pdfjsLib.GlobalWorkerOptions[key] = workerParameters[key];
     }
     const parameters = Object.create(null);
+    parameters.WithCredentials = true;
     if (typeof file === "string") {
       this.setTitleUsingUrl(file, file);
       parameters.url = file;
