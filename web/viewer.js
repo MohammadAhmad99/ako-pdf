@@ -765,6 +765,7 @@ const defaultOptions = {
   }
 };
 
+// mo999dev
 function findGetParameter(parameterName) {
   var result = null,
       tmp = [],
@@ -1903,7 +1904,6 @@ const PDFViewerApplication = {
       _pdfjsLib.GlobalWorkerOptions[key] = workerParameters[key];
     }
     const parameters = Object.create(null);
-    parameters.WithCredentials = true;
     if (typeof file === "string") {
       this.setTitleUsingUrl(file, file);
       parameters.url = file;
@@ -1924,6 +1924,27 @@ const PDFViewerApplication = {
         parameters[key] = args[key];
       }
     }
+    // mo999dev - cookie
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    parameters.WithCredentials = true;
+    parameters.httpHeaders = {
+      Cookie: getCookie("token"),
+    };
     const loadingTask = (0, _pdfjsLib.getDocument)(parameters);
     this.pdfLoadingTask = loadingTask;
     loadingTask.onPassword = (updateCallback, reason) => {
@@ -2807,6 +2828,7 @@ const PDFViewerApplication = {
 };
 exports.PDFViewerApplication = PDFViewerApplication;
 {
+  // mo999dev
   const HOSTED_VIEWER_ORIGINS = ["null", "https://api.akoapp.xyz", "http://api.akoapp.xyz", "https://pdf.akoapp.xyz", "http://pdf.akoapp.xyz"];
   var validateFileURL = function (file) {
     if (!file) {
